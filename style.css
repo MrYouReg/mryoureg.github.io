@@ -7,6 +7,11 @@ body, html {
     transition: 0.35s;
 }
 
+html {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
 #mainPage {
     overflow: hidden;
 }
@@ -127,12 +132,14 @@ svg {
 
 #page_title {
     width: 100%;
-    height: auto;
+    height: 100%;
     text-align: center;
 }
 
 #page_title img {
-    height: 320px;
+    width: auto;
+    height: 100%;
+    max-height: 320px;
     -webkit-filter: invert(1);
     -moz-filter: invert(1);
     -o-filter: invert(1);
@@ -403,7 +410,23 @@ ul {
 .collab { font-weight: normal; color: #333; }
 .date { width: fit-content; float: right; }
 
-@media (max-width: 1240px) {
+@media screen and (orientation: portrait) {
+    body {
+        font-size: 16px;
+    }
+
+    #items_release {
+        display: none;
+    }
+
+    #page_title {
+        width: 100%;
+    }
+    #page_title img {
+        max-width: 90%;
+        height: auto;
+    }
+
     #index_buttons {
         display: inline;
         height: 256px;
@@ -439,10 +462,11 @@ ul {
         float: none;
         white-space: pre;
         font-weight: normal;
+        width: 200%;
     }
 
     .date::before {
-        content: "\A- ";
+        content: "\A   - ";
     }
 
     .date::after {
